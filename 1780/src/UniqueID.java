@@ -8,7 +8,7 @@ public class UniqueID {
 		System.out.println(UID.generateNewId());
 	}
 	public UniqueID(int k) {
-		prevId = "111023";
+		prevId = "999111";
 		this.k = k;
 	}
 	
@@ -45,11 +45,11 @@ public class UniqueID {
 		StringBuilder sb = new StringBuilder();
 		sb.append(Id.substring(offset+1));
 		
-		while(toInt(Id.charAt(i)) + 1 == 10 && i>=0) {
+		while(i>=0 && toInt(Id.charAt(i)) + 1 == 10) {
 			sb.insert(0, '0');
 			i--;
 		}
-		if(i==0) {
+		if(i==-1) {
 			sb.insert(0, '1');
 		} else {
 			sb.insert(0, (char)(Id.charAt(i) +1));
